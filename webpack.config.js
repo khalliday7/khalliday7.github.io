@@ -33,7 +33,7 @@ module.exports = {
     path: path.join(pathBuild, publicPath.replace(/\$/, '')),
     devtoolModuleFilenameTemplate: IS_PROD
       ? undefined
-      : info => path.resolve(info.absoluteResourcePath).replace(/\\/g, '/'),
+      : (info) => path.resolve(info.absoluteResourcePath).replace(/\\/g, '/'),
     publicPath,
   },
   plugins: [
