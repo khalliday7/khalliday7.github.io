@@ -33,7 +33,6 @@ module.exports = {
     deploy: {
       description: 'Deploy GH page to the master branch of this repo.',
       script: npsUtils.series.nps(
-        'predeploy',
         'rm -r ./build',
         'build',
         'gh-pages -d build -b gh-pages',
