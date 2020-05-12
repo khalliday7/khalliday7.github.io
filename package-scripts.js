@@ -30,13 +30,17 @@ module.exports = {
       description: 'Run all predeploy steps',
       script: npsUtils.concurrent.nps('typecheck', 'lint', 'test'),
     },
+    clean: {
+      description: 'Clean previously build assets.',
+      script: 'rm -r ./build',
+    },
+    publish: {
+      description: 'Publish GH page to the master branch of this repo.',
+      script: 'gh-pages -d build -b gh-pages',
+    },
     deploy: {
-      description: 'Deploy GH page to the master branch of this repo.',
-      script: npsUtils.series.nps(
-        'rm -r ./build',
-        'build',
-        'gh-pages -d build -b gh-pages',
-      ),
+      description: 'Clean, build, and publish.',
+      script: npsUtils.series.nps('clean', 'build', 'publish'),
     },
   },
 }
