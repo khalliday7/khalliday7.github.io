@@ -4,6 +4,6 @@
 
 import React from 'react'
 
-const App = () => <h1>Kevin's World</h1>
+const App = () => <h1>World - by Kevin</h1>
 
 export default App
