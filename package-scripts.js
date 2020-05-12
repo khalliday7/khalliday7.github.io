@@ -32,11 +32,11 @@ module.exports = {
     },
     clean: {
       description: 'Clean previously build assets.',
-      script: 'rm -r ./build',
+      script: 'if [ -d build ]; then rm -r build; fi',
     },
     publish: {
       description: 'Publish GH page to the master branch of this repo.',
-      script: 'gh-pages -d build -b gh-pages',
+      script: 'gh-pages -d build -b master',
     },
     deploy: {
       description: 'Clean, build, and publish.',
