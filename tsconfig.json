@@ -1,0 +1,23 @@
+{
+  "compilerOptions": {
+    "noEmit": true,
+    "strictNullChecks": true,
+    "strictFunctionTypes": true,
+    "strictPropertyInitialization": true,
+    "noImplicitAny": true,
+    "noImplicitThis": true,
+    "alwaysStrict": true,
+    "allowJs": true,
+    "jsx": "react",
+    "sourceMap": true,
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "baseUrl": ".",
+    "typeRoots": ["./types", "./node_modules/@types"],
+    "paths": {
+      "*": ["./src/*"],
+      "tests/*": ["./tests/*"],
+      "schema.json": ["./schema.json"]
+    }
+  }
+}
