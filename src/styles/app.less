@@ -1,0 +1,228 @@
+body {
+  margin: 0;
+}
+
+.fill {
+  height: 100%;
+  width: 100%;
+}
+
+.center-absolutely {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%;);
+}
+
+.center-child {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.self-portrait {
+  .center-child();
+  width: 100vw;
+  height: 100vh;
+  background-color: black;
+}
+
+.frame {
+  position: relative;
+  background: #e5e5e5;
+  border-radius: 100%;
+  width: 50vw;
+  height: 50vw;
+  max-width: 70vh;
+  max-height: 70vh;
+  overflow: hidden;
+}
+
+@skin-color: #e5c298;
+.head {
+  // .center-absolutely();
+  position: absolute;
+  left: 30%;
+  top: 15%;
+  background-color: @skin-color;
+  width: 40%;
+  height: 60%;
+  border-radius: 40% 40% 60% 60%;
+  z-index: 1;
+}
+
+@shirt-color: #1b9f41;
+.shirt {
+  position: absolute;
+  top: 90%;
+  left: 50%;
+  transform: translate(-50%, -50%;);
+  width: 60%;
+  height: 40%;
+  background-color: @shirt-color;
+  border-radius: 100% 100% 0 0;
+}
+
+@hair-color-1: #c69403;
+@hair-color-2: #e1b020;
+.hair {
+  position: absolute;
+  top: -12%;
+  left: 15%;
+  width: 90%;
+  height: 150%;
+
+  & > .strand {
+    position: absolute;
+    transform-origin: top left;
+    width: 100%;
+    height: 15%;
+    border-radius: 100% 0 50% 0;
+  }
+
+  & > .strand:nth-child(even) {
+    background-color: @hair-color-1;
+    transform: rotate(10deg);
+  }
+
+  & > .strand:nth-child(odd) {
+    background-color: @hair-color-2;
+    width: 102%;
+  }
+
+  & > .strand:nth-child(1) {
+    transform: rotate(0deg);
+  }
+
+  & > .strand:nth-child(2) {
+    transform: rotate(5deg);
+  }
+
+  & > .strand:nth-child(3) {
+    transform: rotate(10deg);
+  }
+
+  & > .strand:nth-child(4) {
+    transform: rotate(15deg);
+  }
+}
+
+@eye-color: #69d8d8;
+.eyes {
+  z-index: 1;
+  position: absolute;
+  top: 30%;
+  left: 10%;
+  // transform: translate(-50%, -50%;);
+  width: 80%;
+  height: 20%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+
+  & .eye {
+    cursor: grab;
+    position: relative;
+    height: 50%;
+    width: 30%;
+  }
+
+  & .eye.dragging {
+    cursor: grabbing;
+  }
+
+  & .eye .white {
+    z-index: 1;
+    background-color: white;
+    height: 100%;
+    width: 100%;
+    border-radius: 100%;
+    overflow: hidden;
+  }
+
+  & .eye .brow {
+    position: absolute;
+    top: -15%;
+    left: 50%;
+    transform: translate(-50%, -50%;);
+    width: 100%;
+    height: 50%;
+    border-radius: 100% 100% 0 0;
+    background-color: #8a633b;
+
+    &:before {
+      position: relative;
+      top: 30%;
+      display: block;
+      content: '';
+      width: 100%;
+      height: 100%;
+      background-color: @skin-color;
+    }
+  }
+
+  & .eye:first-child .brow:before {
+    border-radius: 60% 100% 0 0;
+  }
+
+  & .eye:last-child .brow:before {
+    border-radius: 100% 60% 0 0;
+  }
+
+  & .eye .iris {
+    .center-absolutely();
+    background-color: @eye-color;
+    height: 50%;
+    width: 40%;
+    border-radius: 100%;
+    background-color: @eye-color;
+    overflow: hidden;
+  }
+
+  & .eye .pupil {
+    .center-absolutely();
+    background-color: black;
+    height: 50%;
+    width: 40%;
+    border-radius: 100%;
+  }
+}
+
+@nose-color: #ddaa7a;
+@nose-shape: polygon(50% 0, 0 100%, 100% 100%);
+@supports (clip-path: @nose-shape) {
+  .nose {
+    z-index: 0;
+    .center-absolutely();
+    height: 20%;
+    width: 20%;
+    background-color: @nose-color;
+    clip-path: @nose-shape;
+  }
+}
+
+@tongue-color: #d86976;
+@mouth-color: #93123b;
+.mouth {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, -50%;);
+  background-color: @mouth-color;
+  width: 30%;
+  overflow: hidden;
+
+  & > .teeth {
+    background-color: white;
+    width: 100%;
+    height: 20%;
+  }
+
+  & > .tongue {
+    background-color: @tongue-color;
+    width: 100%;
+    height: 50%;
+    position: absolute;
+    top: 70%;
+    border-radius: 100% 100% 0 0;
+  }
+}

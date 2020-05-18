@@ -3,7 +3,19 @@
  */
 
 import React from 'react'
+import { hot } from 'react-hot-loader/root'
+import { Switch, BrowserRouter as Router, Route } from 'react-router-dom'
 
-const App = () => <h1>World - by Kevin</h1>
+import Home from 'pages/Home'
 
-export default App
+const App = () => (
+  <Router>
+    <Switch>
+      <Route path="/">
+        <Home />
+      </Route>
+    </Switch>
+  </Router>
+)
+
+export default hot(App)

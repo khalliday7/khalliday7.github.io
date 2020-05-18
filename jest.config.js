@@ -82,7 +82,6 @@ module.exports = {
       '<rootDir>/tests/__mocks__/fileMock.ts',
     '\\.(css|less)$': '<rootDir>/tests/__mocks__/styleMock.ts',
     'tests/(.*)': '<rootDir>/tests/$1',
-    'schema.json': '<rootDir>/schema.json',
   },
 
   // An array of regexp pattern strings, matched against all module paths before considered 'visible' to the module loader

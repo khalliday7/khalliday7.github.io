@@ -16,8 +16,8 @@
     "typeRoots": ["./types", "./node_modules/@types"],
     "paths": {
       "*": ["./src/*"],
-      "tests/*": ["./tests/*"],
-      "schema.json": ["./schema.json"]
+      "tests/*": ["./tests/*"]
     }
-  }
+  },
+  "exclude": ["node_modules", "build"]
 }
