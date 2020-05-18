@@ -1,0 +1,199 @@
+body {
+  margin: 0;
+}
+.fill {
+  height: 100%;
+  width: 100%;
+}
+.center-absolutely {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.center-child {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.self-portrait {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  background-color: black;
+}
+.frame {
+  position: relative;
+  background: #e5e5e5;
+  border-radius: 100%;
+  width: 50vw;
+  height: 50vw;
+  max-width: 70vh;
+  max-height: 70vh;
+  overflow: hidden;
+}
+.head {
+  position: absolute;
+  left: 30%;
+  top: 15%;
+  background-color: #e5c298;
+  width: 40%;
+  height: 60%;
+  border-radius: 40% 40% 60% 60%;
+  z-index: 1;
+}
+.shirt {
+  position: absolute;
+  top: 90%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 60%;
+  height: 40%;
+  background-color: #1b9f41;
+  border-radius: 100% 100% 0 0;
+}
+.hair {
+  position: absolute;
+  top: -12%;
+  left: 15%;
+  width: 90%;
+  height: 150%;
+}
+.hair > .strand {
+  position: absolute;
+  transform-origin: top left;
+  width: 100%;
+  height: 15%;
+  border-radius: 100% 0 50% 0;
+}
+.hair > .strand:nth-child(even) {
+  background-color: #c69403;
+  transform: rotate(10deg);
+}
+.hair > .strand:nth-child(odd) {
+  background-color: #e1b020;
+  width: 102%;
+}
+.hair > .strand:nth-child(1) {
+  transform: rotate(0deg);
+}
+.hair > .strand:nth-child(2) {
+  transform: rotate(5deg);
+}
+.hair > .strand:nth-child(3) {
+  transform: rotate(10deg);
+}
+.hair > .strand:nth-child(4) {
+  transform: rotate(15deg);
+}
+.eyes {
+  z-index: 1;
+  position: absolute;
+  top: 30%;
+  left: 10%;
+  width: 80%;
+  height: 20%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.eyes .eye {
+  cursor: grab;
+  position: relative;
+  height: 50%;
+  width: 30%;
+}
+.eyes .eye.dragging {
+  cursor: grabbing;
+}
+.eyes .eye .white {
+  z-index: 1;
+  background-color: white;
+  height: 100%;
+  width: 100%;
+  border-radius: 100%;
+  overflow: hidden;
+}
+.eyes .eye .brow {
+  position: absolute;
+  top: -15%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 50%;
+  border-radius: 100% 100% 0 0;
+  background-color: #8a633b;
+}
+.eyes .eye .brow:before {
+  position: relative;
+  top: 30%;
+  display: block;
+  content: '';
+  width: 100%;
+  height: 100%;
+  background-color: #e5c298;
+}
+.eyes .eye:first-child .brow:before {
+  border-radius: 60% 100% 0 0;
+}
+.eyes .eye:last-child .brow:before {
+  border-radius: 100% 60% 0 0;
+}
+.eyes .eye .iris {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 50%;
+  width: 40%;
+  border-radius: 100%;
+  background-color: #69d8d8;
+  overflow: hidden;
+}
+.eyes .eye .pupil {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: black;
+  height: 50%;
+  width: 40%;
+  border-radius: 100%;
+}
+@supports (clip-path: polygon(50% 0, 0 100%, 100% 100%)) {
+  .nose {
+    z-index: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 20%;
+    width: 20%;
+    background-color: #ddaa7a;
+    clip-path: polygon(50% 0, 0 100%, 100% 100%);
+  }
+}
+.mouth {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #93123b;
+  width: 30%;
+  overflow: hidden;
+}
+.mouth > .teeth {
+  background-color: white;
+  width: 100%;
+  height: 20%;
+}
+.mouth > .tongue {
+  background-color: #d86976;
+  width: 100%;
+  height: 50%;
+  position: absolute;
+  top: 70%;
+  border-radius: 100% 100% 0 0;
+}
+
